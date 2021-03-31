@@ -37,4 +37,9 @@ resource "aws_lambda_function" "lambda" {
     entry_point = var.docker_entrypoint
     working_directory = var.docker_working_directory
   }
+  lifecycle {
+    ignore_changes = [
+      image_uri
+    ]
+  }
 }
